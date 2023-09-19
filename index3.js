@@ -17,6 +17,14 @@ const port = 3000;
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+
+app.get('/', (req,res)=>{
+  res.send("Working.....!");
+})
+
+
+
+
 // Endpoint to upload and detect text in an image
 app.post('/detectTextAndMatchFaces', upload.fields([
   { name: 'userImage', maxCount: 1 },

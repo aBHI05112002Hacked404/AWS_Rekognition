@@ -71,8 +71,7 @@ app.post('/detectTextAndMatchFaces', upload.fields([
     let isAadharCardValid = false;
 
     for (const textDetection of textDetections) {
-      console.log(textDetection.DetectedText);
-      console.log(textDetection.DetectedText.length);
+      
 
       if (textDetection.DetectedText.length === 14) {
         if (textDetection.DetectedText.charAt(4) === ' ' && textDetection.DetectedText.charAt(9) === ' ') {

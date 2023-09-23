@@ -4,20 +4,20 @@ const Jimp = require('jimp');
 const AWS = require('aws-sdk');
 const fs = require('fs');
 const path = require('path');
-
+const cors=require("cors");
 AWS.config.update({ region: 'ap-south-1' });
 
 const rekognitionClient = new AWS.Rekognition();
-const bucketName = 'awsrekotest'; // Replace with your S3 bucket name
+const bucketName = 'facerecoginitionbucket'; // Replace with your S3 bucket name
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 // Configure multer for file upload
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-
+app.use(cors());
 app.get('/', (req,res)=>{
   res.send("Working.....!");
 })
